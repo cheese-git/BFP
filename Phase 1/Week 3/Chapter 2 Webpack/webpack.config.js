@@ -1,4 +1,7 @@
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 const path = require('path')
+
 
 const config = {
     entry: "./src/index.js",
@@ -17,7 +20,16 @@ const config = {
                 use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
-    }
+    },
+    devServer: {
+        hot: true
+    },
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: "./public/index.html"
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+    ]
 }
 
 module.exports = config
