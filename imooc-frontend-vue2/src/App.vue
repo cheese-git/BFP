@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-container>
     <b-form>
       <b-form-group label="用户名">
         <b-input></b-input>
@@ -8,11 +8,14 @@
         <b-input type="password"></b-input>
       </b-form-group>
       <b-form-group label="验证码">
-        <b-input></b-input>
+        <b-input-group>
+          <b-input></b-input>
+          <b-input-append v-html="captchaSVG"></b-input-append>
+        </b-input-group>
       </b-form-group>
       <b-button type="submit" variant="primary">登陆</b-button>
     </b-form>
-  </div>
+  </b-container>
 </template>
 
 <script lang="ts">
@@ -21,7 +24,15 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default Vue.extend({
-
+  data() {
+    return {
+      captchaSVG: ''
+    }
+  },
+  async mounted() {
+    const res = await fetch('http://localhost:3000/captcha').then(res => res.json())
+    this.captchaSVG = res.data
+  }
 })
 </script>
 
