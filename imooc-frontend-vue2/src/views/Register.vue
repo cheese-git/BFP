@@ -6,6 +6,18 @@
     </b-nav>
     <b-form>
       <email-input v-model.trim="username" />
+      <ValidationProvider name="昵称" rules="min:4" v-slot="{ errors }">
+        <b-form-group
+          label="昵称"
+          :state="!errors[0]"
+          :invalid-feedback="errors[0]"
+        >
+          <b-form-input
+            placeholder="请输入昵称"
+            v-model="nickName"
+          ></b-form-input>
+        </b-form-group>
+      </ValidationProvider>
       <pwd-input v-model="pwd" />
       <captcha-text-input v-model.trim="captchaText" />
 
@@ -25,7 +37,8 @@ export default Vue.extend({
     return {
       username: '',
       pwd: '',
-      captchaText: ''
+      captchaText: '',
+      nickName: ''
     }
   },
   components: {
