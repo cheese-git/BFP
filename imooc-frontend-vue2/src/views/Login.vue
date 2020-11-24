@@ -61,6 +61,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import apiFetch from '@/api-fetch'
 
 export default Vue.extend({
   data() {
@@ -76,7 +77,7 @@ export default Vue.extend({
   },
   methods: {
     async getCaptcha() {
-      const res = await fetch('http://localhost:3000/captcha').then(res => res.json())
+      const res = await apiFetch('captcha')
       this.captchaSVG = res.data
     },
   }
