@@ -3,9 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { BootstrapVue } from 'bootstrap-vue'
+import { ValidationProvider } from 'vee-validate'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.component('ValidationProvider', ValidationProvider)
 
 new Vue({
   router,
