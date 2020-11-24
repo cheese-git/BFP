@@ -8,9 +8,12 @@ localize({
 localize('zh_CN')
 
 // rules
-extend('required', required)
-extend('email', email)
+extend('required', { ...required, message: "请输入{_field_}" })
+extend('email', { ...email, message: "请输入正确的邮箱格式" })
 extend('max', max)
-extend('min', min)
-extend('length', length)
+extend('min', {
+    ...min,
+    message: "不符合最小长度要求"
+})
+extend('length', { ...length, message: "{_field_}长度要求{length}" })
 
