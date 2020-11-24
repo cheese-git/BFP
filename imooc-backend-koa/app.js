@@ -7,7 +7,10 @@ const app = new Koa()
 const router = new Router()
 
 router.get('/captcha', ctx => {
-    const { data, text } = svgCaptcha.create()
+    const { data, text } = svgCaptcha.create({
+        noise: Math.floor(Math.random() * 5),
+        color: true
+    })
     ctx.body = {
         code: 200,
         data
