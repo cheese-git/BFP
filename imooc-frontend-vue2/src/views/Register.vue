@@ -9,7 +9,7 @@
       <pwd-input v-model="pwd" />
       <captcha-text-input v-model.trim="captchaText" />
 
-      <b-button type="submit" variant="primary">注册</b-button>
+      <b-button type="submit" variant="primary">立即注册</b-button>
     </b-form>
   </b-container>
 </template>
