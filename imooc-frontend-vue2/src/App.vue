@@ -13,7 +13,7 @@
           :state="!errors[0]"
         >
           <b-form-input
-            v-model="username"
+            v-model.trim="username"
             placeholder="请输入电子邮箱"
           ></b-form-input>
         </b-form-group>
@@ -44,7 +44,7 @@
           :invalid-feedback="errors[0]"
         >
           <b-input-group>
-            <b-input v-model="captchaText"></b-input>
+            <b-input v-model.trim="captchaText"></b-input>
             <b-input-group-append
               @click="getCaptcha()"
               v-html="captchaSVG"
