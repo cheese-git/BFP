@@ -1,6 +1,7 @@
 <template>
   <b-container>
     <b-form>
+      <!-- 邮箱 -->
       <ValidationProvider
         name="邮箱"
         rules="required|email"
@@ -17,6 +18,7 @@
           ></b-form-input>
         </b-form-group>
       </ValidationProvider>
+      <!-- 密码 -->
       <ValidationProvider
         name="密码"
         rules="required|min:6|max:128"
@@ -30,6 +32,7 @@
           <b-input type="password" v-model="pwd"></b-input>
         </b-form-group>
       </ValidationProvider>
+      <!-- 验证码 -->
       <ValidationProvider
         name="验证码"
         rules="required|length:4"
@@ -50,6 +53,7 @@
           </b-input-group>
         </b-form-group>
       </ValidationProvider>
+
       <b-button type="submit" variant="primary">登陆</b-button>
     </b-form>
   </b-container>
